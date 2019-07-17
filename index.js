@@ -1,2 +1,2 @@
-exports.UserProvider  = require('./lib/UserProvider');
+exports.IdentityPool  = require('./lib/IdentityPool');
 exports.Authenticator = require('./lib/PassportWrapper');
