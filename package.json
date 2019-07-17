@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "rikky <son.levuthai@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@fusion.io/framework": "^1.5.14"
   },
