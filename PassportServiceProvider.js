@@ -28,9 +28,14 @@ class PassportServiceProvider extends ServiceProvider {
         const strategies    = config.get("auth.strategies");
 
         forIn(strategies, ({options, strategy, provider}, strategyName) => {
+
+            if (!provider) {
+                throw new Error(`E_AUTHENTICATOR: Invalid service configuration. Please configure provider for strategy [${strategyName}]`);
+            }
+
             const providerCallback  = pool.callback(provider);
 
-            passport.use(strategyName, new strategy(options, providerCallback));
+            passport.use(strategyName, new strategy(options || {}, providerCallback));
         });
 
         return new PassportWrapper(passport);
