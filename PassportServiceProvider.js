@@ -28,7 +28,7 @@ class PassportServiceProvider extends ServiceProvider {
         const strategies    = config.get("auth.strategies");
 
         forIn(strategies, ({options, strategy}, strategyName) => {
-            passport.use(strategyName, new strategy(options || {}, pool.callback(strategy)));
+            passport.use(strategyName, new strategy(options || {}, pool.callback(strategyName)));
         });
 
         return new PassportWrapper(passport);
